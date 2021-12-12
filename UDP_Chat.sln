@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UDP_Chat_Client", "UDP_Chat_Client\UDP_Chat_Client.csproj", "{8D2168E6-9FE8-4D7F-A89E-C3F398B25BA8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UDP_Chat_Lib", "UDP_Chat_Lib\UDP_Chat_Lib.csproj", "{65E9F665-E07B-498E-BD11-B1AFE6160A68}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8D2168E6-9FE8-4D7F-A89E-C3F398B25BA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D2168E6-9FE8-4D7F-A89E-C3F398B25BA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D2168E6-9FE8-4D7F-A89E-C3F398B25BA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D2168E6-9FE8-4D7F-A89E-C3F398B25BA8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65E9F665-E07B-498E-BD11-B1AFE6160A68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65E9F665-E07B-498E-BD11-B1AFE6160A68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65E9F665-E07B-498E-BD11-B1AFE6160A68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65E9F665-E07B-498E-BD11-B1AFE6160A68}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
