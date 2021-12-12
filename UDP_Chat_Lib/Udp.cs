@@ -1,21 +1,21 @@
 ﻿using System.Net;
 using System.Net.Sockets;
+using System.Threading.Tasks;
 
 namespace UDP_Chat_Lib
 {
     public static class Udp
     {
-        public static void SendBinary(byte[] message, string ip, int port)
+        public static async Task SendBinaryAsync(byte[] message, string ip, int port)
         {
             using var sender = new UdpClient();
-            sender.Send(message, message.Length, ip, port);
+            await sender.SendAsync(message, message.Length, ip, port);
         }
 
-        public static void ReceiveBinary(int port, out byte[] data)
+        public static async Task<UdpReceiveResult> ReceiveBinaryAsync(int port)
         {
-            var receiver = new UdpClient(port);
-            IPEndPoint ip = null;
-            data = receiver.Receive(ref ip);
+            using var receiver = new UdpClient(port);
+            return await receiver.ReceiveAsync();
         }
     }
 }

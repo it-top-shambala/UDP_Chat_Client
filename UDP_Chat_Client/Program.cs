@@ -10,7 +10,7 @@ namespace UDP_Chat_Client
         private static string ip = string.Empty;
         private static int port_remote = 0;
         private static int port_local = 0;
-        static void Main()
+        static async Task Main()
         {
             Console.Write("Введите удалённый ip-адрес: ");
             ip = Console.ReadLine();
@@ -18,27 +18,30 @@ namespace UDP_Chat_Client
             port_remote = Convert.ToInt32(Console.ReadLine());
             Console.Write("Введите локальный порт: ");
             port_local = Convert.ToInt32(Console.ReadLine());
-            
-            Task.Run(Receive);
 
             while (true)
             {
-                Send();
+                await Send();
+                await Receive();
             }
         }
 
-        static void Receive()
+        static async Task Receive()
         {
-            Udp.ReceiveBinary(port_local, out var data);
+            var result = await Udp.ReceiveBinaryAsync(port_local);
+            var data = result.Buffer;
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine(Encoding.Unicode.GetString(data));
+            Console.ResetColor();
         }
 
-        static void Send()
+        static async Task Send()
         {
-            Console.Write("Введите сообщение: ");
+            Console.ForegroundColor = ConsoleColor.Green;
             var message = Console.ReadLine();
             var data = Encoding.Unicode.GetBytes(message);
-            Udp.SendBinary(data, ip, port_remote);
+            await Udp.SendBinaryAsync(data, ip, port_remote);
+            Console.ResetColor();
         }
     }
 }
