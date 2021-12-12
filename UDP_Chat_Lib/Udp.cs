@@ -11,11 +11,11 @@ namespace UDP_Chat_Lib
             sender.Send(message, message.Length, ip, port);
         }
 
-        public static byte[] ReceiveBinary(int port)
+        public static void ReceiveBinary(int port, out byte[] data)
         {
             var receiver = new UdpClient(port);
             IPEndPoint ip = null;
-            return receiver.Receive(ref ip);
+            data = receiver.Receive(ref ip);
         }
     }
 }
